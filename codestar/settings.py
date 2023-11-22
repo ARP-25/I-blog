@@ -28,6 +28,7 @@ DATABASES = {
     'default': db_config
 }
 
+CSRF_TRUSTED_ORIGINS = ["https://8000-arp25-iblog-tp211bzqwxi.ws-eu106.gitpod.io"]
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,7 +43,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["arp25-codestar-cb745881e5c2.herokuapp.com", "localhost"]
+ALLOWED_HOSTS = ["arp25-codestar-cb745881e5c2.herokuapp.com", "localhost", '8000-arp25-iblog-tp211bzqwxi.ws-eu106.gitpod.io','127.0.0.1']
 
 
 # Application definition
@@ -56,8 +57,8 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'django_summernote',
     'blog',
-
 ]
 
 MIDDLEWARE = [
@@ -136,7 +137,7 @@ STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media'
+MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
