@@ -16,6 +16,7 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 import dj_database_url
+from django.contrib.messages import constants as messages
 
 # Fetch the database URL from the environment variable
 db_url = os.environ.get("DATABASE_URL")
@@ -41,7 +42,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ["arp25-codestar-cb745881e5c2.herokuapp.com", "localhost", '8000-arp25-iblog-tp211bzqwxi.ws-eu106.gitpod.io','127.0.0.1']
 
@@ -68,6 +71,14 @@ INSTALLED_APPS = [
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGUOUT_REDIRECT_URL = '/'
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
 
 
 MIDDLEWARE = [
